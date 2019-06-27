@@ -1,11 +1,17 @@
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.streaming.Durations;
 import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
+import org.apache.spark.streaming.api.java.JavaDStream;
 import org.apache.spark.streaming.api.java.JavaStreamingContext;
 import org.apache.spark.streaming.api.java.JavaPairDStream;
 import java.util.Arrays;
+import java.util.List;
+import java.lang.Iterable;
+import scala.collection.Seq;
+import java.util.stream.Stream;
 import scala.Tuple2;
-
 
 public class NtworkListener {
 
@@ -15,7 +21,7 @@ public class NtworkListener {
     private static final long Y = 30;
     public static void main(String[] args) throws Exception {
         System.setProperty("hadoop.home.dir", "C:\\winutils\\bin");
-//        set SPARK configuration
+//        create SPARK configuration
         SparkConf conf = new SparkConf().setMaster("local[*]").setAppName("NtworkListener");
 //        create SPARK Streaming Context
         JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(Y));

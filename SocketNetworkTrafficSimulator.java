@@ -13,7 +13,7 @@ public class SocketNetworkTrafficSimulator {
         int numberOfRandomIps=100;
         String[] randomIps = new String[numberOfRandomIps];
         for (int i=0;i<numberOfRandomIps;i++)
-            randomIps[i] = (rn.nextInt(250)+1) +"." +
+            randomIps[i] = (rn.nextInt(250)+1) + "." +
                                 (rn.nextInt(250)+1) +"." +
                                 (rn.nextInt(250)+1) +"." +
                                 (rn.nextInt(250)+1);
